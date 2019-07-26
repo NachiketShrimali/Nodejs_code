@@ -1,0 +1,52 @@
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="home">MY HOME</a>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="createEmployee">CreateEmployee</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="viewEmployee">ViewEmployee</a>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+  </ul>
+</div>
+</nav>
+
+  <div class="container">
+    <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{msg}}</strong>
+    </div>
+
+    <h1> View all Employee data</h1>
+    <table class="table table-hover">
+      <tr><th>EID</th><th>ENAME</th><th>SALARY</th><th>Delete</th><th>Update</th></tr>
+      {{#each list}}
+      <tr>
+        <td>{{this.id}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.salary}}</td>
+        <td><a href="deleteEmp?id={{this.id}}" onclick="return confirm('Deleted???');" class="glyphicon glyphicon-trash"></td>
+        <td><a href="updateEmp?id={{this.id}}" class="glyphicon glyphicon-edit"></td>
+        </tr>
+      {{/each}}
+    </table>
+  </div>
+</body>
